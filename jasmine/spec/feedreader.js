@@ -79,12 +79,12 @@ $(function() {
 		beforeEach(function(done) {
 			loadFeed(0, function() {
 				oldFirstTitle = $('.entry h2:first');
-				done();
+				loadFeed(1, function(){
+					newFirstTitle = $('.entry h2:first');
+					done();
+				});
 			});
-			loadFeed(1, function(){
-				newFirstTitle = $('.entry h2:first');
-				done();
-			});
+			
 		});
 
 		it('Confirmação de que o conteúdo mudou!', function(done) {
